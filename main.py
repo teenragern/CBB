@@ -396,10 +396,10 @@ def main():
 
         cal = update_calibration(con)
         print(f"[bold]CAL UPDATED[/bold] margin_bias={cal['margin_bias']:+.2f} total_bias={cal['total_bias']:+.2f} "
-              f"sigM×{cal['sigma_margin_mult']:.2f} sigT×{cal['sigma_total_mult']:.2f} n={cal['n_games']}")
+              f"sigM*{cal['sigma_margin_mult']:.2f} sigT*{cal['sigma_total_mult']:.2f} n={cal['n_games']}")
 
         gate = update_gate(con, last_n=30)
-        print(f"[bold]GATE UPDATED[/bold] stake×{gate['stake_mult']:.2f} | clv_pts={gate.get('avg_clv_mtm_pts',0):+.3f} "
+        print(f"[bold]GATE UPDATED[/bold] stake*{gate['stake_mult']:.2f} | clv_pts={gate.get('avg_clv_mtm_pts',0):+.3f} "
               f"| clv_price={gate.get('avg_clv_mtm_price',0):+.5f} | n={gate.get('n',0)}")
 
         if SEND_REPORT and notifier.enabled:
@@ -409,7 +409,7 @@ def main():
                 report_last_n_days(con, days=REPORT_DAYS, limit=200)
             text = buf.getvalue().strip()
             if text:
-                notifier.send_long("📊 NCAAB Nightly Report\n\n" + text)
+                notifier.send_long("NCAAB Nightly Report\n\n" + text)
 
         return
 
@@ -453,11 +453,11 @@ def main():
         # Load calibration + gate for this scan run
         cal = load_calibration()
         print(f"[bold]CAL[/bold] margin_bias={cal['margin_bias']:+.2f} total_bias={cal['total_bias']:+.2f} "
-              f"sigM×{cal['sigma_margin_mult']:.2f} sigT×{cal['sigma_total_mult']:.2f} n={cal['n_games']}")
+              f"sigM*{cal['sigma_margin_mult']:.2f} sigT*{cal['sigma_total_mult']:.2f} n={cal['n_games']}")
 
         gate = load_gate()
         stake_mult = float(gate.get("stake_mult", 1.0))
-        print(f"[bold]GATE[/bold] stake×{stake_mult:.2f} | clv_pts={gate.get('avg_clv_mtm_pts',0):+.3f} | clv_price={gate.get('avg_clv_mtm_price',0):+.5f}")
+        print(f"[bold]GATE[/bold] stake*{stake_mult:.2f} | clv_pts={gate.get('avg_clv_mtm_pts',0):+.3f} | clv_price={gate.get('avg_clv_mtm_price',0):+.5f}")
 
         # -------- SCAN ----------
         # todays_games already fetched above so injury auto-detection can be cached
@@ -758,10 +758,10 @@ def main():
                 print(line)
 
         if notifier.enabled and SEND_SLATE_SUMMARY and (bet_lines or pass_lines):
-            msg = f"🏀 NCAAB Bet / Pass ({iso(anchor)})\n\n"
-            msg += f"✅ BET ({len(bet_lines)}):\n" + ("\n\n".join(bet_lines) if bet_lines else "None")
+            msg = f"NCAAB Bet / Pass ({iso(anchor)})\n\n"
+            msg += f"BET ({len(bet_lines)}):\n" + ("\n\n".join(bet_lines) if bet_lines else "None")
             if pass_lines:
-                msg += f"\n\n⛔ PASS ({len(pass_lines)}):\n" + "\n\n".join(pass_lines[:5])
+                msg += f"\n\nPASS ({len(pass_lines)}):\n" + "\n\n".join(pass_lines[:5])
                 if len(pass_lines) > 5:
                     msg += f"\n\n(+{len(pass_lines)-5} more passes not shown)"
             notifier.send_long(msg)

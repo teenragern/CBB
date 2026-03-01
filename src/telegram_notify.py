@@ -86,7 +86,7 @@ def format_recommendation(game: dict, r: dict) -> str:
     stake = r.get("stake_units", 0.0)
 
     return (
-        f"🏀 {away} @ {home}\n"
+        f"{away} @ {home}\n"
         f"{market.upper()} — {side.upper()} | line {line} | odds {odds} | {vendor}\n"
         f"p_model {p_model:.3f} | p_mkt {p_mkt:.3f} | edge {edge:+.3f}\n"
         f"EV/1u {ev:+.3f} | stake {stake:.2f}u"
@@ -97,7 +97,7 @@ def format_recommendation_line(game: dict, r: dict, decision: str = "BET", reaso
     home = game["home_team"]["full_name"]
     away = game["visitor_team"]["full_name"]
 
-    tag = "✅ BET" if decision.upper() == "BET" else "⛔ PASS"
+    tag = "BET" if decision.upper() == "BET" else "PASS"
     why = f" | {reason}" if reason else ""
 
     return (
