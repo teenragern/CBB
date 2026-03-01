@@ -1,0 +1,31 @@
+
+Scan day (NY): 2026-02-28
+Fetching games window: 2026-02-27 -> 2026-03-02
+Games raw: 239 | NY-day: 143
+Training window: 2025-10-11 -> 2026-02-27
+sigma_margin=10.93  sigma_total=18.38
+CAL margin_bias=+0.00 total_bias=+0.00 sigM×1.00 sigT×1.00 n=0
+GATE stake×1.00 | clv_pts=+0.000 | clv_price=+0.00000
+Odds rows (by game_ids): 1033
+Odds API ML offers merged: 209 | unmatched events=33
+Odds API alternates unavailable (ok): Odds API error 422: {"message":"Markets 
+not supported by this endpoint: alternate_spreads, 
+alternate_totals","error_code":"INVALID_MARKET","details_url":"https://the-odds
+-api.com/liveapi/guides/v4/api-error-codes.html#invalid-market"}
+
+
+Selected candidates: 3 | exposure=7.81u / cap=8.00u
+
+New bets: 0
+Passes: 3
+
+PASS
+⛔ PASS | re-entry blocked
+Oral Roberts Golden Eagles @ Kansas City Roos | total under line=149.5 
+odds=-105 stake=3.00u edge=+0.108 EV=+0.164 (draftkings)
+⛔ PASS | re-entry blocked
+Baylor Bears @ UCF Knights | total under line=160.5 odds=-115 stake=3.00u 
+edge=+0.102 EV=+0.148 (betmgm)
+⛔ PASS | re-entry blocked
+Cal Poly Mustangs @ UC San Diego Tritons | spread home line=-6.5 odds=-110 
+stake=1.81u edge=+0.041 EV=+0.033 (fanduel)
